@@ -1,0 +1,239 @@
+.Start-button{
+    -fx-background-color:#34495e;
+    -fx-background-radius:10;
+    -fx-border-color: #2980b9;
+    -fx-border-radius:5;
+    -fx-border-width:2;
+    -fx-text-fill:#ecf0f1;
+}
+.Start-button:hover{
+    -fx-background-color:#ecf0f1;
+    -fx-background-radius:10;
+    -fx-border-color: #2980b9;
+    -fx-border-radius:5;
+    -fx-border-width:2;
+    -fx-text-fill:#2c3e50;
+}
+.Pause-button{
+    -fx-background-color:#ff7979;
+    -fx-border-color:#ff7979;
+    -fx-border-radius:5;
+    -fx-border-width:2;
+    -fx-text-fill:#ffffff;
+}
+.Pause-button:hover{
+    -fx-background-color:#ffffff;
+    -fx-border-color:#ff7979;
+    -fx-border-radius:5;
+    -fx-border-width:2;
+    -fx-text-fill:#ff7979;
+}
+.Reset-button{
+    -fx-background-color:#27ae60;
+    -fx-border-color:#27ae60;
+    -fx-border-radius:5;
+    -fx-border-width:2;
+    -fx-text-fill:#ffffff;
+}
+.Reset-button:hover{
+    -fx-background-color:#ffffff;
+    -fx-border-color: #27ae60;
+    -fx-border-radius:5;
+    -fx-border-width:2;
+    -fx-text-fill: #27ae60;
+}
+.Force-stop-button{
+    -fx-background-color:#b2bec3;
+    -fx-border-color: #b2bec3;
+    -fx-border-radius:5;
+    -fx-border-width:2;
+    -fx-text-fill:#000000;
+}
+.Force-stop-button:hover{
+    -fx-background-color:#ffffff;
+    -fx-border-color:#b2bec3;
+    -fx-border-radius:5;
+    -fx-border-width:2;
+    -fx-text-fill: #000000;
+}
+.Start-pick-button{
+    -fx-background-color: #55efc4;
+    -fx-border-color: #55efc4;
+    -fx-border-radius:5;
+    -fx-border-width:2;
+    -fx-text-fill:#000000;
+}
+.Start-pick-button:hover{
+    -fx-background-color:#ffffff;
+    -fx-border-color: #55efc4;
+    -fx-border-radius:5;
+    -fx-border-width:2;
+    -fx-text-fill: #000000;
+}
+.Stop-pick-button{
+    -fx-background-color: #fd79a8;
+    -fx-border-color: #fd79a8;
+    -fx-border-radius:5;
+    -fx-border-width:2;
+    -fx-text-fill:#000000;
+}
+.Stop-pick-button:hover{
+    -fx-background-color:#ffffff;
+    -fx-border-color: #fd79a8;
+    -fx-border-radius:5;
+    -fx-border-width:2;
+    -fx-text-fill: #000000;
+}
+.Choose-algorithm-button{
+    -fx-background-color:#dfe6e9;
+    -fx-border-color:#dfe6e9;
+    -fx-border-width:5;
+    -fx-text-fill:#000000;
+}
+.Choose-algorithm-button:hover{
+    -fx-background-color:#ffffff;
+    -fx-border-color:#dfe6e9;
+    -fx-border-width:5;
+    -fx-text-fill: #000000;
+}
+.Input-Argument-TextField:hover{
+    -fx-background-color:#dff9fb;
+}
+.Step-on-button{
+    -fx-background-color: #81ecec;
+    -fx-border-color: #81ecec;
+    -fx-border-radius:5;
+    -fx-border-width:2;
+    -fx-text-fill:#000000;
+}
+.Step-on-button:hover{
+    -fx-background-color:#ffffff;
+    -fx-border-color: #81ecec;
+    -fx-border-radius:5;
+    -fx-border-width:2;
+    -fx-text-fill: #000000;
+}
+.Step-off-button{
+    -fx-background-color: #fab1a0;
+    -fx-border-color: #fab1a0;
+    -fx-border-radius:5;
+    -fx-border-width:2;
+    -fx-text-fill:#000000;
+}
+.Step-off-button:hover{
+    -fx-background-color:#ffffff;
+    -fx-border-color: #fab1a0;
+    -fx-border-radius:5;
+    -fx-border-width:2;
+    -fx-text-fill: #000000;
+}
+.Step-next-button{
+    -fx-background-color: #dfe6e9;
+    -fx-border-color: #dfe6e9;
+    -fx-border-radius:5;
+    -fx-border-width:2;
+    -fx-text-fill:#000000;
+}
+.Step-next-button:hover{
+    -fx-background-color:#ffffff;
+    -fx-border-color: #dfe6e9;
+    -fx-border-radius:5;
+    -fx-border-width:2;
+    -fx-text-fill: #000000;
+}
+.Set-file-button{
+     -fx-background-color: #2ecc71;
+     -fx-background-radius: 10;
+     -fx-border-color: #2ecc71;
+     -fx-border-radius:10;
+     -fx-border-width:2;
+     -fx-text-fill:#000000;
+ }
+.Set-file-button:hover{
+     -fx-background-color:#ffffff;
+     -fx-background-radius: 10;
+     -fx-border-color: #2ecc71;
+     -fx-border-radius:10;
+     -fx-border-width:2;
+     -fx-text-fill: #000000;
+}
+.Algorithm-name-box{
+     -fx-background-color: #ecf0f1;
+     -fx-background-radius: 10;
+     -fx-border-color: #ffffff;
+     -fx-border-radius:10;
+     -fx-border-width:2;
+     -fx-text-fill:#000000;
+}
+.Algorithm-name-box:hover{
+     -fx-background-color:#ffffff;
+     -fx-background-radius: 10;
+     -fx-border-color: #ecf0f1;
+     -fx-border-radius:10;
+     -fx-border-width:2;
+     -fx-text-fill: #000000;
+}
+.Algorithm-name-label{
+      -fx-text-fill:#e74c3c;
+}
+.Algorithm-name-label:hover{
+      -fx-text-fill: #000000;
+}
+.Credit-general-label{
+      -fx-background-color: #dfe6e9;
+      -fx-background-radius: 10;
+}
+.Credit-general-label:hover{
+      -fx-background-color: #ffffff;
+      -fx-background-radius: 10;
+}
+.Team-member1-label{
+      -fx-background-color: #dfe6e9;
+      -fx-background-radius: 5;
+}
+.Team-member1-label:hover{
+      -fx-background-color: #ffffff;
+      -fx-text-fill: #f0932b;
+      -fx-background-radius: 5;
+}
+.Team-member2-label{
+      -fx-background-color: #dfe6e9;
+      -fx-background-radius: 5;
+}
+.Team-member2-label:hover{
+      -fx-background-color: #ffffff;
+      -fx-background-radius: 5;
+}
+.Teacher-name-label{
+      -fx-text-fill: linear-gradient(from 0% 0% to 100% 200%, repeat, aqua 0%, red 50%);
+}
+.Link-git-label{
+
+
+}
+.Link-git-label:hover{
+    -fx-text-fill: #eb4d4b;
+
+}
+.Number-to-add-remove-button{
+    -fx-background-color: #ffeaa7;
+    -fx-border-color:#ffeaa7;
+    -fx-border-radius:5;
+    -fx-border-width:2;
+    -fx-text-fill:#000000;
+}
+.Number-to-add-remove-button:hover{
+    -fx-background-color:#ffffff;
+    -fx-border-color:#ffeaa7;
+    -fx-border-radius:5;
+    -fx-border-width:2;
+    -fx-text-fill: #000000;
+}
+.background{
+    -fx-background-color: #bdc3c7;
+    -fx-background-image:url("background1.jpg");
+    -fx-background-repeat: stretch;
+    -fx-background-size: 1500 780;
+    -fx-background-position: center center;
+    -fx-effect: dropshadow(three-pass-box, black, 30, 0.5, 0, 0);
+}

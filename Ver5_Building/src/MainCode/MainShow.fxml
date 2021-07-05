@@ -1,0 +1,719 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Slider?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.Tooltip?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="show" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="780.0" prefWidth="1500.0" styleClass="background" stylesheets="@styles.css" xmlns:fx="http://javafx.com/fxml/1" fx:controller="MainCode.Controller">
+   <children>
+      <Pane fx:id="display" layoutX="6.0" layoutY="8.0" prefHeight="400.0" prefWidth="800.0" style="-fx-background-color: #ecf0f1;" />
+      <HBox fx:id="controllBox" alignment="CENTER" layoutX="-4.0" layoutY="419.0" prefHeight="158.0" prefWidth="820.0">
+         <children>
+            <HBox alignment="CENTER" prefHeight="158.0" prefWidth="153.0" style="-fx-background-color: #ffffff; -fx-background-radius: 10;">
+               <HBox.margin>
+                  <Insets left="10.0" right="10.0" />
+               </HBox.margin>
+               <children>
+                  <VBox fx:id="box1" alignment="CENTER" prefHeight="158.0" prefWidth="150.0">
+                     <children>
+                        <HBox alignment="CENTER" prefHeight="58.0" prefWidth="146.0">
+                           <children>
+                              <Button fx:id="startButton" mnemonicParsing="false" onAction="#startButtonOnAction" prefHeight="56.0" prefWidth="129.0" styleClass="Start-button" stylesheets="@styles.css" text="Start" textFill="WHITE">
+                                 <font>
+                                    <Font name="System Bold Italic" size="24.0" />
+                                 </font>
+                                 <HBox.margin>
+                                    <Insets />
+                                 </HBox.margin>
+                                 <tooltip>
+                                    <Tooltip opacity="0.9" text="Start the clustering algorithm. If step by step mode off, it will run continuously" textAlignment="CENTER" />
+                                 </tooltip>
+                              </Button>
+                           </children>
+                           <VBox.margin>
+                              <Insets bottom="5.0" top="10.0" />
+                           </VBox.margin>
+                        </HBox>
+                        <HBox alignment="CENTER" prefHeight="38.0" prefWidth="148.0">
+                           <children>
+                              <Button fx:id="pauseButton" mnemonicParsing="false" onAction="#pauseButtonOnAction" prefHeight="33.0" prefWidth="65.0" style="-fx-background-color: #ff7979;" stylesheets="@styles.css" text="Pause">
+                                 <HBox.margin>
+                                    <Insets right="5.0" />
+                                 </HBox.margin>
+                                 <font>
+                                    <Font name="System Bold Italic" size="12.0" />
+                                 </font>
+                                 <tooltip>
+                                    <Tooltip opacity="0.9" text="Pause current animation" />
+                                 </tooltip>
+                              </Button>
+                              <Button fx:id="resetButton" mnemonicParsing="false" onAction="#resetButtonOnAction" prefHeight="33.0" prefWidth="54.0" styleClass="Reset-button" stylesheets="@styles.css" text="Reset">
+                                 <HBox.margin>
+                                    <Insets />
+                                 </HBox.margin>
+                                 <font>
+                                    <Font name="System Bold Italic" size="12.0" />
+                                 </font>
+                                 <tooltip>
+                                    <Tooltip opacity="0.9" text="Reset the display and the data as well" />
+                                 </tooltip>
+                              </Button>
+                           </children>
+                           <VBox.margin>
+                              <Insets bottom="7.0" />
+                           </VBox.margin>
+                        </HBox>
+                        <Button fx:id="forceStopButton" mnemonicParsing="false" onAction="#forceStopButtonOnAction" prefHeight="38.0" prefWidth="123.0" styleClass="Force-stop-button" stylesheets="@styles.css" text="Force Stop">
+                           <VBox.margin>
+                              <Insets />
+                           </VBox.margin>
+                           <font>
+                              <Font name="System Bold Italic" size="12.0" />
+                           </font>
+                           <tooltip>
+                              <Tooltip text="Force stop may cause display ERROR due to the use of arraylist for sequential Animation, Becarefull when use!!!!" />
+                           </tooltip>
+                        </Button>
+                        <Label text="(May cause Error)" textFill="RED">
+                           <font>
+                              <Font size="10.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </VBox>
+               </children>
+            </HBox>
+            <VBox prefHeight="158.0" prefWidth="160.0" style="-fx-background-color: #ffffff; -fx-background-radius: 10;">
+               <children>
+                  <HBox alignment="CENTER" prefHeight="36.0" prefWidth="142.0">
+                     <children>
+                        <Label alignment="CENTER" text="Adjust Speed">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                           <opaqueInsets>
+                              <Insets />
+                           </opaqueInsets>
+                        </Label>
+                     </children>
+                  </HBox>
+                  <VBox prefHeight="94.0" prefWidth="142.0">
+                     <children>
+                        <HBox alignment="CENTER_LEFT" prefHeight="29.0" prefWidth="142.0">
+                           <children>
+                              <VBox alignment="CENTER" prefHeight="30.0" prefWidth="45.0">
+                                 <children>
+                                    <Label text="Speed" />
+                                 </children>
+                              </VBox>
+                              <Label text="1">
+                                 <HBox.margin>
+                                    <Insets />
+                                 </HBox.margin>
+                              </Label>
+                              <Label text="3" textFill="#1dbf48">
+                                 <HBox.margin>
+                                    <Insets left="40.0" />
+                                 </HBox.margin>
+                              </Label>
+                              <Label text="5" textFill="#e4310e">
+                                 <HBox.margin>
+                                    <Insets left="40.0" />
+                                 </HBox.margin>
+                              </Label>
+                           </children>
+                        </HBox>
+                        <HBox alignment="CENTER" prefHeight="48.0" prefWidth="142.0">
+                           <children>
+                              <Label text="x" />
+                              <Label fx:id="speedDisplayLabel" prefHeight="18.0" prefWidth="32.0" text="1.00">
+                                 <font>
+                                    <Font name="System Bold" size="12.0" />
+                                 </font>
+                              </Label>
+                              <Slider fx:id="speedSlider" blockIncrement="1.0" max="5.0" min="1.0" onDragDetected="#speedSliderOnChange" onDragDone="#speedSliderOnChange" onMouseClicked="#speedSliderOnChange" prefHeight="14.0" prefWidth="111.0" value="1.0" />
+                           </children>
+                        </HBox>
+                     </children>
+                     <VBox.margin>
+                        <Insets top="25.0" />
+                     </VBox.margin>
+                  </VBox>
+               </children>
+               <HBox.margin>
+                  <Insets right="10.0" />
+               </HBox.margin>
+            </VBox>
+            <VBox fx:id="box2" alignment="CENTER" prefHeight="158.0" prefWidth="259.0" style="-fx-background-color: #ffffff; -fx-background-radius: 10;">
+               <children>
+                  <Label alignment="CENTER" contentDisplay="CENTER" text="Add-Remove Point">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets top="5.0" />
+                     </VBox.margin>
+                  </Label>
+                  <HBox alignment="CENTER" prefHeight="132.0" prefWidth="246.0">
+                     <children>
+                        <VBox alignment="CENTER" prefHeight="130.0" prefWidth="123.0">
+                           <children>
+                              <Label fx:id="numPointLabel" text="Default:10">
+                                 <VBox.margin>
+                                    <Insets />
+                                 </VBox.margin>
+                              </Label>
+                              <ComboBox fx:id="numberPointButton" onAction="#selectNumPoint" prefHeight="26.0" prefWidth="100.0" promptText="Number" styleClass="Number-to-add-remove-button" stylesheets="@styles.css">
+                                 <VBox.margin>
+                                    <Insets bottom="5.0" />
+                                 </VBox.margin>
+                                 <tooltip>
+                                    <Tooltip text="Choose number of node to add random, or remove" />
+                                 </tooltip>
+                              </ComboBox>
+                              <Button fx:id="addPointButton" mnemonicParsing="false" onAction="#addPointButtonOnAction" prefHeight="26.0" prefWidth="100.0" text="Add">
+                                 <VBox.margin>
+                                    <Insets bottom="5.0" />
+                                 </VBox.margin>
+                              </Button>
+                              <Button fx:id="removePointButton" mnemonicParsing="false" onAction="#removePointButtonOnAction" prefWidth="100.0" text="Remove">
+                                 <VBox.margin>
+                                    <Insets />
+                                 </VBox.margin>
+                              </Button>
+                           </children>
+                        </VBox>
+                        <VBox alignment="CENTER" prefHeight="129.0" prefWidth="115.0">
+                           <children>
+                              <VBox alignment="CENTER" prefHeight="22.0" prefWidth="115.0">
+                                 <children>
+                                    <Label text="Pick By Hand">
+                                       <font>
+                                          <Font name="System Bold" size="12.0" />
+                                       </font>
+                                       <tooltip>
+                                          <Tooltip text="Pick by hand mode. Press &quot;Start Pick&quot; to pick. When done, press &quot;Stop pick&quot;" />
+                                       </tooltip>
+                                    </Label>
+                                 </children>
+                              </VBox>
+                              <Button fx:id="pickByHandButton" mnemonicParsing="false" onAction="#pickByHandButtonOnAction" prefHeight="26.0" prefWidth="109.0" styleClass="Start-pick-button" stylesheets="@styles.css" text="Start Pick">
+                                 <VBox.margin>
+                                    <Insets bottom="5.0" />
+                                 </VBox.margin>
+                              </Button>
+                              <Button fx:id="stopPickByHandButton" mnemonicParsing="false" onAction="#stopPickByHandButtonOnAction" prefHeight="26.0" prefWidth="110.0" styleClass="Stop-pick-button" stylesheets="@styles.css" text="Stop Pick">
+                                 <VBox.margin>
+                                    <Insets bottom="5.0" />
+                                 </VBox.margin></Button>
+                              <Button disable="true" mnemonicParsing="false" prefHeight="26.0" prefWidth="111.0" style="-fx-background-color: #b2bec3;" text="Delete All Nodes">
+                                 <VBox.margin>
+                                    <Insets bottom="5.0" />
+                                 </VBox.margin>
+                                 <font>
+                                    <Font name="System Bold" size="12.0" />
+                                 </font>
+                              </Button>
+                           </children>
+                           <HBox.margin>
+                              <Insets right="10.0" />
+                           </HBox.margin>
+                        </VBox>
+                     </children>
+                  </HBox>
+               </children>
+               <HBox.margin>
+                  <Insets right="10.0" />
+               </HBox.margin>
+            </VBox>
+            <VBox fx:id="box3" alignment="CENTER" prefHeight="158.0" prefWidth="187.0" style="-fx-background-color: #ffffff; -fx-background-radius: 10;">
+               <children>
+                  <HBox alignment="CENTER" prefHeight="35.0" prefWidth="187.0">
+                     <children>
+                        <Label alignment="CENTER" text="Choose Type Of Algorithm">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                           <opaqueInsets>
+                              <Insets />
+                           </opaqueInsets>
+                        </Label>
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER" prefHeight="128.0" prefWidth="187.0">
+                     <children>
+                        <VBox alignment="CENTER" prefHeight="95.0" prefWidth="159.0">
+                           <children>
+                              <Label text="Default: K-Mean">
+                                 <VBox.margin>
+                                    <Insets bottom="10.0" />
+                                 </VBox.margin>
+                              </Label>
+                              <ComboBox fx:id="chooseAlgorithmComboBox" onAction="#chooseAlgorithmComboBoxOnAction" prefHeight="26.0" prefWidth="143.0" promptText="Choose Type" styleClass="Choose-algorithm-button" stylesheets="@styles.css">
+                                 <tooltip>
+                                    <Tooltip text="Choose clustering algorithm" />
+                                 </tooltip>
+                                 <VBox.margin>
+                                    <Insets bottom="10.0" />
+                                 </VBox.margin></ComboBox>
+                           </children>
+                           <HBox.margin>
+                              <Insets />
+                           </HBox.margin>
+                        </VBox>
+                     </children>
+                  </HBox>
+               </children>
+               <HBox.margin>
+                  <Insets right="10.0" />
+               </HBox.margin>
+            </VBox>
+         </children>
+      </HBox>
+      <VBox alignment="TOP_CENTER" layoutX="820.0" layoutY="8.0" prefHeight="567.0" prefWidth="150.0">
+         <children>
+            <VBox fx:id="box4" alignment="CENTER" prefHeight="137.0" prefWidth="150.0" style="-fx-background-color: #ffffff; -fx-background-radius: 10;">
+               <children>
+                  <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="19.0" prefWidth="90.0" text="Status">
+                     <VBox.margin>
+                        <Insets bottom="10.0" />
+                     </VBox.margin>
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="statusLabel" alignment="CENTER" prefHeight="18.0" prefWidth="136.0" text="Not Started" />
+                  <Pane fx:id="loadingPicPane" prefHeight="52.0" prefWidth="150.0" />
+               </children>
+               <VBox.margin>
+                  <Insets />
+               </VBox.margin>
+            </VBox>
+            <VBox fx:id="box5" alignment="CENTER" prefHeight="81.0" prefWidth="150.0" style="-fx-background-color: #ffffff; -fx-background-radius: 10;">
+               <children>
+                  <Label prefHeight="19.0" prefWidth="78.0" text="Num of Nodes">
+                     <VBox.margin>
+                        <Insets />
+                     </VBox.margin>
+                     <tooltip>
+                        <Tooltip text="Show current number of nodes" />
+                     </tooltip>
+                  </Label>
+                  <Label fx:id="numOfNodes" text="???" />
+               </children>
+               <VBox.margin>
+                  <Insets top="10.0" />
+               </VBox.margin>
+            </VBox>
+            <VBox fx:id="box6" alignment="CENTER" prefHeight="230.0" prefWidth="146.0" style="-fx-background-color: #ffffff; -fx-background-radius: 10;">
+               <children>
+                  <Label prefHeight="19.0" prefWidth="106.0" text="Custom Argument">
+                     <VBox.margin>
+                        <Insets bottom="10.0" />
+                     </VBox.margin>
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Label>
+                  <HBox alignment="CENTER_RIGHT" prefHeight="59.0" prefWidth="137.0">
+                     <children>
+                        <VBox alignment="CENTER_LEFT" prefHeight="42.0" prefWidth="65.0">
+                           <children>
+                              <Label prefHeight="18.0" prefWidth="40.0" text="Delay">
+                                 <tooltip>
+                                    <Tooltip text="This will set the delay time between animation, must be&gt;0" />
+                                 </tooltip></Label>
+                              <Label text="&gt;0" />
+                           </children>
+                           <HBox.margin>
+                              <Insets />
+                           </HBox.margin>
+                        </VBox>
+                        <TextField fx:id="delayOfSpeedField" onKeyPressed="#delayOfSpeedFieldOnEnter" prefHeight="30.0" prefWidth="79.0" styleClass="Input-Argument-TextField" stylesheets="@styles.css" text="???">
+                           <HBox.margin>
+                              <Insets right="5.0" />
+                           </HBox.margin></TextField>
+                     </children>
+                     <VBox.margin>
+                        <Insets left="5.0" right="5.0" />
+                     </VBox.margin>
+                  </HBox>
+                  <HBox alignment="CENTER_RIGHT" prefHeight="59.0" prefWidth="137.0">
+                     <children>
+                        <VBox alignment="CENTER_LEFT" prefHeight="50.0" prefWidth="58.0">
+                           <children>
+                              <Label prefHeight="18.0" prefWidth="46.0" text="Diversity">
+                                 <tooltip>
+                                    <Tooltip text="This will affect the set of data when data being create by reset button" />
+                                 </tooltip></Label>
+                              <Label text="1-5" />
+                           </children>
+                           <HBox.margin>
+                              <Insets />
+                           </HBox.margin>
+                        </VBox>
+                        <TextField fx:id="diversityForGenerateField" onKeyPressed="#dForGenerateFieldOnEnter" prefHeight="30.0" prefWidth="74.0" styleClass="Input-Argument-TextField" stylesheets="@styles.css" text="???">
+                           <HBox.margin>
+                              <Insets right="5.0" />
+                           </HBox.margin></TextField>
+                     </children>
+                     <VBox.margin>
+                        <Insets left="5.0" right="5.0" />
+                     </VBox.margin>
+                  </HBox>
+                  <HBox alignment="CENTER_RIGHT" prefHeight="59.0" prefWidth="137.0">
+                     <children>
+                        <VBox alignment="CENTER_LEFT" prefHeight="51.0" prefWidth="70.0">
+                           <children>
+                              <Label prefHeight="18.0" prefWidth="59.0" text="OptimizeG">
+                                 <tooltip>
+                                    <Tooltip text="This will affect the set of data when data being create by reset button" />
+                                 </tooltip></Label>
+                              <Label text="1-3" />
+                           </children>
+                           <HBox.margin>
+                              <Insets />
+                           </HBox.margin>
+                        </VBox>
+                        <TextField fx:id="optionForGenerateField" onKeyPressed="#optimizeGFieldOnEnter" prefHeight="30.0" prefWidth="80.0" styleClass="Input-Argument-TextField" stylesheets="@styles.css" text="???">
+                           <HBox.margin>
+                              <Insets right="5.0" />
+                           </HBox.margin></TextField>
+                     </children>
+                     <VBox.margin>
+                        <Insets left="5.0" right="5.0" />
+                     </VBox.margin>
+                  </HBox>
+                  <HBox alignment="CENTER_RIGHT" prefHeight="59.0" prefWidth="137.0">
+                     <children>
+                        <VBox alignment="CENTER_LEFT" prefHeight="42.0" prefWidth="70.0">
+                           <children>
+                              <Label prefHeight="18.0" prefWidth="59.0" text="Custom k">
+                                 <tooltip>
+                                    <Tooltip text="Enter K" />
+                                 </tooltip></Label>
+                              <Label text="1-10" />
+                           </children>
+                        </VBox>
+                        <TextField fx:id="customKField" onKeyPressed="#kFieldOnEnter" prefHeight="30.0" prefWidth="80.0" styleClass="Input-Argument-TextField" stylesheets="@styles.css" text="???">
+                           <HBox.margin>
+                              <Insets right="5.0" />
+                           </HBox.margin></TextField>
+                     </children>
+                     <VBox.margin>
+                        <Insets left="5.0" right="5.0" />
+                     </VBox.margin>
+                  </HBox>
+               </children>
+               <VBox.margin>
+                  <Insets top="10.0" />
+               </VBox.margin>
+            </VBox>
+            <VBox fx:id="box7" alignment="CENTER" prefHeight="153.0" prefWidth="150.0" style="-fx-background-color: #ffffff; -fx-background-radius: 10;">
+               <VBox.margin>
+                  <Insets top="10.0" />
+               </VBox.margin>
+               <children>
+                  <Label text="Step by Step Mode">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                     <tooltip>
+                        <Tooltip text="Step by step mode is build base on an arraylist of sequential transition" />
+                     </tooltip>
+                  </Label>
+                  <HBox alignment="CENTER" prefHeight="20.0" prefWidth="146.0">
+                     <children>
+                        <Label text="Current state: " />
+                        <Label fx:id="stepByStepStateLabel" text="Off" />
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER" prefHeight="41.0" prefWidth="146.0">
+                     <children>
+                        <Button fx:id="stepByStepOnButton" mnemonicParsing="false" onAction="#stepByStepOnButtonOnAction" styleClass="Step-on-button" stylesheets="@styles.css" text="Turn On">
+                           <HBox.margin>
+                              <Insets right="5.0" />
+                           </HBox.margin>
+                           <tooltip>
+                              <Tooltip text="Turn step by step mode on" />
+                           </tooltip>
+                        </Button>
+                        <Button fx:id="stepByStepOffButton" mnemonicParsing="false" onAction="#stepByStepOffButtonOnAction" styleClass="Step-off-button" stylesheets="@styles.css" text="Turn Off">
+                           <tooltip>
+                              <Tooltip text="Turn step by step mode off" />
+                           </tooltip></Button>
+                     </children>
+                  </HBox>
+                  <Button fx:id="stepByStepNextButton" mnemonicParsing="false" onAction="#stepBystepNextButtonOnAction" styleClass="Step-next-button" stylesheets="@styles.css" text="Next">
+                     <tooltip>
+                        <Tooltip text="Next animation (only available when step by step mode on)" />
+                     </tooltip></Button>
+               </children>
+            </VBox>
+         </children>
+      </VBox>
+      <HBox fx:id="displayStepTextBox" alignment="CENTER" layoutX="9.0" layoutY="674.0" prefHeight="100.0" prefWidth="962.0" style="-fx-background-color: #34495e; -fx-background-radius: 10;" AnchorPane.topAnchor="670.0">
+         <children>
+            <VBox alignment="CENTER" prefHeight="100.0" prefWidth="188.0" styleClass="Algorithm-name-box" stylesheets="@styles.css">
+               <children>
+                  <Label fx:id="nameOfAlgorithmLabel" alignment="CENTER" prefHeight="40.0" prefWidth="170.0" styleClass="Algorithm-name-label" stylesheets="@styles.css" text="KMEAN" textFill="#e74c3c">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" styleClass="Algorithm-name-label" stylesheets="@styles.css" text="CLUSTERING" textFill="#e74c3c">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                  </Label>
+               </children>
+               <HBox.margin>
+                  <Insets bottom="5.0" top="5.0" />
+               </HBox.margin>
+            </VBox>
+            <VBox alignment="CENTER" prefHeight="100.0" prefWidth="42.0">
+               <HBox.margin>
+                  <Insets />
+               </HBox.margin>
+            </VBox>
+            <VBox alignment="CENTER" prefHeight="100.0" prefWidth="607.0">
+               <children>
+                  <HBox prefHeight="44.0" prefWidth="568.0">
+                     <children>
+                        <VBox prefHeight="26.0" prefWidth="9.0" />
+                        <Label text="NOTIFICATION" textFill="WHITE">
+                           <tooltip>
+                              <Tooltip text="Show warning, error and some notification " />
+                           </tooltip></Label>
+                     </children>
+                     <VBox.margin>
+                        <Insets top="8.0" />
+                     </VBox.margin>
+                  </HBox>
+                  <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+                     <children>
+                        <Label fx:id="errorAndWarningLabel" alignment="TOP_LEFT" prefHeight="46.0" prefWidth="597.0" textFill="WHITE">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
+            <Button fx:id="showCreditButton" maxHeight="20.0" maxWidth="20.0" minHeight="20.0" minWidth="20.0" mnemonicParsing="false" onAction="#showCreditButtonOnAction" prefHeight="20.0" prefWidth="20.0" />
+         </children>
+      </HBox>
+      <HBox fx:id="dropDragTemplateFileTarget" alignment="CENTER" layoutX="9.0" layoutY="589.0" prefHeight="70.0" prefWidth="961.0" style="-fx-background-color: #ffffff; -fx-background-radius: 10;" AnchorPane.topAnchor="589.0">
+         <children>
+            <TextField fx:id="dragTemplateFileTextFiled" prefHeight="43.0" prefWidth="828.0" promptText="Drag or Enter a &quot;txt&quot; file Here to set a template of Nodes" style="-fx-background-color: #ffffff;">
+               <font>
+                  <Font size="16.0" />
+               </font>
+               <tooltip>
+                  <Tooltip text="File can be drag here to set path. Or you can just type in the absolute path of file" />
+               </tooltip>
+            </TextField>
+            <HBox prefHeight="70.0" prefWidth="12.0" />
+            <Button fx:id="setTemplateFileButton" mnemonicParsing="false" onAction="#setTemplateFileButtonOnAction" prefHeight="37.0" prefWidth="82.0" styleClass="Set-file-button" stylesheets="@styles.css" text="Set">
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font>
+               <tooltip>
+                  <Tooltip text="After input file, press this to set the data and display to screen" />
+               </tooltip>
+            </Button>
+         </children>
+      </HBox>
+      <VBox fx:id="credit" alignment="CENTER" layoutX="1027.0" layoutY="10.0" prefHeight="762.0" prefWidth="461.0" style="-fx-background-color: #dfe6e9; -fx-background-radius: 10;">
+         <children>
+            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: #ffffff; -fx-background-radius: 10;">
+               <children>
+                  <Label alignment="TOP_CENTER" text="Ơ nhóm này chưa đặt tên à?">
+                     <font>
+                        <Font name="System Bold" size="28.0" />
+                     </font>
+                  </Label>
+               </children>
+               <VBox.margin>
+                  <Insets bottom="50.0" left="20.0" right="20.0" />
+               </VBox.margin>
+            </HBox>
+            <HBox alignment="CENTER" prefHeight="49.0" prefWidth="462.0">
+               <children>
+                  <Label text="IT3102 - 122024">
+                     <font>
+                        <Font name="System Bold" size="20.0" />
+                     </font>
+                  </Label>
+               </children>
+               <VBox.margin>
+                  <Insets bottom="60.0" />
+               </VBox.margin>
+            </HBox>
+            <VBox alignment="CENTER" prefHeight="110.0" prefWidth="462.0">
+               <children>
+                  <VBox alignment="CENTER_LEFT" prefHeight="76.0" prefWidth="462.0">
+                     <children>
+                        <Label styleClass="Credit-general-label" stylesheets="@styles.css" text="Team Members:">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                           <padding>
+                              <Insets left="5.0" right="5.0" />
+                           </padding>
+                           <VBox.margin>
+                              <Insets bottom="10.0" />
+                           </VBox.margin>
+                        </Label>
+                     </children>
+                     <VBox.margin>
+                        <Insets left="20.0" />
+                     </VBox.margin>
+                  </VBox>
+                  <HBox alignment="CENTER" prefHeight="195.0" prefWidth="462.0">
+                     <children>
+                        <VBox prefHeight="84.0" prefWidth="26.0">
+                           <children>
+                              <Label text="1.">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Label>
+                              <Label text="2.">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Label>
+                              <Label text="3.">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </VBox>
+                        <VBox prefHeight="84.0" prefWidth="214.0">
+                           <children>
+                              <Label styleClass="Team-member1-label" stylesheets="@styles.css" text="Đoàn Văn Hậu ✰">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                                 <VBox.margin>
+                                    <Insets />
+                                 </VBox.margin>
+                                 <padding>
+                                    <Insets left="5.0" right="5.0" />
+                                 </padding>
+                              </Label>
+                              <Label styleClass="Team-member2-label" stylesheets="@styles.css" text="Nguyễn Viết Thành Long">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                                 <VBox.margin>
+                                    <Insets />
+                                 </VBox.margin>
+                                 <padding>
+                                    <Insets left="5.0" right="5.0" />
+                                 </padding>
+                              </Label>
+                              <Label styleClass="Team-member2-label" stylesheets="@styles.css" text="Nguyễn Đắc Nam">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                                 <VBox.margin>
+                                    <Insets />
+                                 </VBox.margin>
+                                 <padding>
+                                    <Insets left="5.0" right="5.0" />
+                                 </padding>
+                              </Label>
+                           </children>
+                        </VBox>
+                        <VBox prefHeight="200.0" prefWidth="100.0">
+                           <children>
+                              <Label text="20184093">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Label>
+                              <Label text="20184140">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Label>
+                              <Label text="20184160">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </VBox>
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
+            <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0">
+               <children>
+                  <Label text="Sincerely Thanks">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Line endX="8.29284381866455" endY="0.5928993225097656" startX="-100.0">
+                     <VBox.margin>
+                        <Insets top="-3.0" />
+                     </VBox.margin>
+                  </Line>
+                  <Label styleClass="Teacher-name-label" stylesheets="@styles.css" text="TS.Bùi Thị Mai Anh">
+                     <font>
+                        <Font name="System Bold Italic" size="32.0" />
+                     </font>
+                  </Label>
+               </children>
+            </VBox>
+            <HBox prefHeight="55.0" prefWidth="462.0" />
+            <VBox alignment="CENTER" prefHeight="74.0" prefWidth="462.0">
+               <children>
+                  <Label text="Clustering Algorithm Visualization Application">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Label>
+                  <Hyperlink fx:id="hyperLinkGit" alignment="CENTER" onAction="#hyperLinkGitOnAction" prefHeight="24.0" prefWidth="70.0" styleClass="Link-git-label" stylesheets="@styles.css" text="Link Github" />
+               </children>
+            </VBox>
+         </children>
+      </VBox>
+      <Button fx:id="testButton" layoutX="981.0" layoutY="633.0" mnemonicParsing="false" onAction="#testButtonOnAction" text="test" visible="false" />
+      <Pane fx:id="quitPane" layoutX="906.0" layoutY="8.0" prefHeight="120.0" prefWidth="123.0" style="-fx-view-order: 2;">
+         <children>
+            <HBox fx:id="quitHBox" alignment="TOP_RIGHT" layoutX="-66.0" layoutY="10.0" prefHeight="100.0" prefWidth="110.0" style="-fx-background-color: #ffffff; -fx-background-radius: 20; -fx-rotate: 30; -fx-view-order: 0;">
+               <children>
+                  <Button fx:id="quitButton" mnemonicParsing="false" onAction="#quitButtonOnAction" prefHeight="26.0" prefWidth="30.0" style="-fx-background-color: #ffffff; -fx-background-radius: 10;" text="X" textFill="#e74c3c">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                  </Button>
+               </children></HBox>
+         </children>
+      </Pane>
+      <Pane layoutX="806.0" layoutY="-2.0" prefHeight="9.0" prefWidth="200.0" style="-fx-background-color: #496477;" />
+      <Pane layoutX="827.0" layoutY="128.0" prefHeight="9.0" prefWidth="200.0" style="-fx-background-color: #536879;" />
+      <Pane layoutX="807.0" layoutY="-4.0" prefHeight="142.0" prefWidth="13.0" style="-fx-background-color: #496477;" />
+      <Pane fx:id="sparkDecoration1" layoutX="962.0" layoutY="408.0" prefHeight="48.0" prefWidth="74.0" AnchorPane.bottomAnchor="50.0" AnchorPane.leftAnchor="1300.0" />
+      <Pane fx:id="sparkDecoration2" layoutX="954.0" layoutY="551.0" prefHeight="48.0" prefWidth="74.0" AnchorPane.bottomAnchor="181.0" AnchorPane.leftAnchor="1200.0" AnchorPane.rightAnchor="200.0" />
+      <Pane fx:id="sparkDecoration3" layoutX="972.0" layoutY="418.0" prefHeight="48.0" prefWidth="74.0" AnchorPane.leftAnchor="1300.0" AnchorPane.rightAnchor="125.6" AnchorPane.topAnchor="150.0" />
+      <Pane fx:id="sparkDecoration4" layoutX="982.0" layoutY="428.0" prefHeight="48.0" prefWidth="74.0" AnchorPane.leftAnchor="1320.0" AnchorPane.rightAnchor="120.0" AnchorPane.topAnchor="120.0" />
+   </children>
+</AnchorPane>
