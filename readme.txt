@@ -2,3 +2,4 @@ A simple application for visualization clustering algorithm, using javafx and ma
 Kmeans
 K Nearest Neighbor
 Means Shift
+OOP based building
